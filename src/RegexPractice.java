@@ -1,8 +1,11 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegexPractice {
     // Regex transcends any individual programming language
     // though some can be different
     public static void main(String[] args) {
-        // ABCs of RegEx
+        // 1. ABCs of RegEx
         System.out.println("Bat".matches("[cCbB]at"));
         // range
         // = true
@@ -23,7 +26,7 @@ public class RegexPractice {
         // true
         System.out.println("_at".matches("\\wat"));
 
-        // SHORT HAND CHAR CLASSES:
+        // 2. SHORT HAND CHAR CLASSES:
         // allow for word that has any 3 latin chars
         // false - hyphen doesn't underscore does!?
         System.out.println("_at".matches("\\wat"));
@@ -97,6 +100,32 @@ public class RegexPractice {
         // This is powerful!
 
         // start at beginning and go slowly
+
+        // 3. Capture Groups:
+        // a reg ex is a pattern
+        // reg ex is a programming language - a program (RegEx) within a program (Java)
+        // reg ex needs to be compiled
+        // java easy to read by humans but not easy to read for computers, so intermediate step where computer translates java into bytecode (machine code - 0011010)
+        // similarly reg ex get compiles into another form that is more efficient to use by computer
+        // compiling reg ex is expensive - so dont use Pattern.compile too much over and over again
+        // compilation in general is expensive
+        // Matcher class
+        // when you use quantifiers with capture groups you only have access to the last thing that matched which is why it's throwing 333
+        // String regex = "(1[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}";
+        String regex = "(1[-.,\\s]?)?(\\d{3}[-.,\\s]?)(\\d{3}[-.,\\s]?)\\d{4}";
+        String phoneNumber = "1.232.333.6524";
+
+        System.out.println(phoneNumber.matches(regex));
+
+        Pattern pat = Pattern.compile(regex);
+        Matcher mat = pat.matcher(phoneNumber);
+
+        // capture groups within ()
+        if (mat.matches()) {
+            System.out.println(mat.group(1));
+            System.out.println(mat.group(2));
+            System.out.println(mat.group(3));
+        }
 
     }
 }
