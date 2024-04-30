@@ -112,19 +112,28 @@ public class RegexPractice {
         // Matcher class
         // when you use quantifiers with capture groups you only have access to the last thing that matched which is why it's throwing 333
         // String regex = "(1[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}";
-        String regex = "(1[-.,\\s]?)?(\\d{3}[-.,\\s]?)(\\d{3}[-.,\\s]?)\\d{4}";
-        String phoneNumber = "1.232.333.6524";
 
-        System.out.println(phoneNumber.matches(regex));
+//        String regex = "(\\d{1,2}[-.,\\s]?)?(\\d{3}[-.,\\s]?)(\\d{3}[-.,\\s]?)\\d{4}";
+        // parse and return numbers with special characters
+        // order of capture groups changes
+        // This one line is equivalent of LearnStrings phone number methods
+        // less readable but one line and much more flexible
+        String regex = "((\\d{1,2})[-.,\\s]?)?((\\d{3})[-.,\\s]?)((\\d{3})[-.,\\s]?)(\\d{4})";
 
+        String phoneNumber = "12.232.333.6524";
+
+        //boilerplate to set up regex in more complex ways
         Pattern pat = Pattern.compile(regex);
         Matcher mat = pat.matcher(phoneNumber);
 
         // capture groups within ()
         if (mat.matches()) {
-            System.out.println(mat.group(1));
-            System.out.println(mat.group(2));
-            System.out.println(mat.group(3));
+            System.out.format("Country code: %s\n", mat.group(2));
+            System.out.format("Area code: %s\n",mat.group(4));
+            System.out.format("Exchange: %s\n",mat.group(6));
+            System.out.format("Line number: %s\n", mat.group(7));
+            // capture group 0 = entire string
+            System.out.println(mat.group(0));
         }
 
     }
