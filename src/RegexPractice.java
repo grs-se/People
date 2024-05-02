@@ -118,7 +118,9 @@ public class RegexPractice {
         // order of capture groups changes
         // This one line is equivalent of LearnStrings phone number methods
         // less readable but one line and much more flexible
-        String regex = "((\\d{1,2})[-.,\\s]?)?((\\d{3})[-.,\\s]?)((\\d{3})[-.,\\s]?)(\\d{4})";
+//        String regex = "((\\d{1,2})[-.,\\s]?)?((\\d{3})[-.,\\s]?)((\\d{3})[-.,\\s]?)(\\d{4})";
+// ?: inside opening parentheses says "don't remember" - non-capturing
+        String regex = "(?:(\\d{1,2})[-.,\\s]?)?(?:(\\d{3})[-.,\\s]?)(?:(\\d{3})[-.,\\s]?)(\\d{4})";
 
         String phoneNumber = "12.232.333.6524";
 
@@ -128,10 +130,26 @@ public class RegexPractice {
 
         // capture groups within ()
         if (mat.matches()) {
-            System.out.format("Country code: %s\n", mat.group(2));
-            System.out.format("Area code: %s\n",mat.group(4));
-            System.out.format("Exchange: %s\n",mat.group(6));
-            System.out.format("Line number: %s\n", mat.group(7));
+            System.out.format("Country code: %s\n", mat.group(1));
+            System.out.format("Area code: %s\n",mat.group(2));
+            System.out.format("Exchange: %s\n",mat.group(3));
+            System.out.format("Line number: %s\n", mat.group(4));
+            // capture group 0 = entire string
+            System.out.println(mat.group(0));
+        }
+
+        // NAMED CAPTURE GROUPS
+        String namedCaptureGroupRegex = "(?:(?<countryCode>\\d{1,2})[-.,\\s]?)?(?:(?<areaCode>\\d{3})[-.,\\s]?)(?:(?<exchange>\\d{3})[-.,\\s]?)(?<lineNumber>\\d{4})";
+        Pattern pat2 = Pattern.compile(namedCaptureGroupRegex);
+        Matcher mat2 = pat2.matcher(phoneNumber);
+
+        // Terry prefers named capture groups: unwieldy but easier to understand
+        // capture groups within ()
+        if (mat2.matches()) {
+            System.out.format("Country code: %s\n", mat2.group("countryCode"));
+            System.out.format("Area code: %s\n",mat2.group("areaCode"));
+            System.out.format("Exchange: %s\n",mat2.group("exchange"));
+            System.out.format("Line number: %s\n", mat2.group("lineNumber"));
             // capture group 0 = entire string
             System.out.println(mat.group(0));
         }
