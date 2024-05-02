@@ -16,9 +16,10 @@ public class TranscriptParser {
         Grade:\\s+(?<grade>\\d{1,2}).* # Get grade
         Birthdate:\\s+(?<birthMonth>\\d{2})/(?<birthDay>\\d{2})/(?<birthYear>\\d{4}).* # Get birthdate
         Gender:\\s+(?<gender>\\w+)\\b.* # Get grade # One or more word characters followed by a word boundary
-        State\\sID:\\s+(?<stateID>\\d+)\\b.* # Get state ID
-        Weighted\\)\\s+(?<weightedGPA>[\\d\\.]+)\\b.* # Get the weighted GPA
-        Unweighted\\)\\s+(?<unweightedGPA>[\\d\\.]+)\\b.* # Get the unweighted GPA
+        State\\sID:\\s+(?<stateID>\\d+)\\b.*? # Get state ID
+        Cumulative.*?(?<weightedGPA>[\\d\\.]+)\\b.* # Get the weighted GPA
+        #Weighted\\)\\s+(?<weightedGPA>[\\d\\.]+)\\b.* # Get the weighted GPA
+        #Unweighted\\)\\s+(?<unweightedGPA>[\\d\\.]+)\\b.* # Get the unweighted GPA
         """;
 
         // Pattern.DOTALL = flag (flags in programming are things that we toggle on or off)
@@ -33,7 +34,11 @@ public class TranscriptParser {
             System.out.println(mat.group("gender"));
             System.out.println(mat.group("stateID"));
             System.out.println(mat.group("weightedGPA"));
-            System.out.println(mat.group("unweightedGPA"));
+//            System.out.println(mat.group("unweightedGPA"));
         }
+        // * = GREEDY OPERATOR - grabs everything and works backwards
+        // * = greedy, wants to consume as many chars as it can
+        // it will go from * to end of string and then it will go backwards until it finds something that matches the expression
+    // *? = will go forwards rather than backwards, so not greedy
     }
 }
