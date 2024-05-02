@@ -139,8 +139,16 @@ public class RegexPractice {
         }
 
         // NAMED CAPTURE GROUPS
-        String namedCaptureGroupRegex = "(?:(?<countryCode>\\d{1,2})[-.,\\s]?)?(?:(?<areaCode>\\d{3})[-.,\\s]?)(?:(?<exchange>\\d{3})[-.,\\s]?)(?<lineNumber>\\d{4})";
-        Pattern pat2 = Pattern.compile(namedCaptureGroupRegex);
+        String namedCaptureGroupRegex = """
+# This regex parses parts of a phone number
+(?:(?<countryCode>\\d{1,2})[-.,\\s]?)? # Get's country code
+(?:(?<areaCode>\\d{3})[-.,\\s]?) # Get's area code
+(?:(?<exchange>\\d{3})[-.,\\s]?) # Get's exchange
+(?<lineNumber>\\d{4}) # Get's line number
+""";
+
+        // note: allowing comments tells regex engine to ignore spaces, so can't put literal spaces in, instead \\s
+        Pattern pat2 = Pattern.compile(namedCaptureGroupRegex, Pattern.COMMENTS);
         Matcher mat2 = pat2.matcher(phoneNumber);
 
         // Terry prefers named capture groups: unwieldy but easier to understand
