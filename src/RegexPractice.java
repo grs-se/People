@@ -122,7 +122,8 @@ public class RegexPractice {
 // ?: inside opening parentheses says "don't remember" - non-capturing
         String regex = "(?:(\\d{1,2})[-.,\\s]?)?(?:(\\d{3})[-.,\\s]?)(?:(\\d{3})[-.,\\s]?)(\\d{4})";
 
-        String phoneNumber = "12.232.333.6524";
+        String phoneNumber = "(232) 333-6524";
+//        String phoneNumber = "12.232.333.6524";
 
         //boilerplate to set up regex in more complex ways
         Pattern pat = Pattern.compile(regex);
@@ -142,7 +143,8 @@ public class RegexPractice {
         String namedCaptureGroupRegex = """
 # This regex parses parts of a phone number
 (?:(?<countryCode>\\d{1,2})[-.,\\s]?)? # Get's country code
-(?:(?<areaCode>\\d{3})[-.,\\s]?) # Get's area code
+# parentheses are special chars so need to escape them and then 0 or 1 (optional)
+(?:\\(?(?<areaCode>\\d{3})\\)?[-.,\\s]?) # Get's area code
 (?:(?<exchange>\\d{3})[-.,\\s]?) # Get's exchange
 (?<lineNumber>\\d{4}) # Get's line number
 """;
@@ -159,7 +161,7 @@ public class RegexPractice {
             System.out.format("Exchange: %s\n",mat2.group("exchange"));
             System.out.format("Line number: %s\n", mat2.group("lineNumber"));
             // capture group 0 = entire string
-            System.out.println(mat.group(0));
+//            System.out.println(mat.group(0));
         }
 
     }
