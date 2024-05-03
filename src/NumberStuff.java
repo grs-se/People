@@ -84,7 +84,37 @@ public class NumberStuff {
 
         short myBigShort = 45;
         char myChar = '강'; //gang
-        char myA = 'A'; //
+        char myA = 'A'; // in essence storing number 65
+
+
+        // INT (-2,147,483,648 to 2,147,483,647) - 32 bits
+        // most common numerical data type used by default in Java
+        // basic math
+        // good for loops up 2,1 billion
+        // may be overkill for lots of things - why need to know about all data types
+        // why bother with int if only need to loop 20 times, use a byte
+        // however, even using 100's of int is not going to put much of a dent in RAM
+        // programmers today have become quite wasteful because computers today have so much RAM
+
+        // LONG
+        // long	8 bytes	Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+        // 64 bits
+        // used to store records to a database, each record in the database requires it's own ID
+        // type long to ensure that pretty much impossible to run out of ids for those records
+        // INT could be exhausted (2 billion) in some apps - spacecraft apps
+        // safety sake programmers do sokmetimes defualt to LONG
+        // What is it I need to count? What do i think the upper limit will ever be on whatever it is i need to count in my programme? And then what datat type will comformtably fit with that assumed upper limit?
+
+//        byte myByte2 = 128; // error - exceeded number of bits that are allocated to a byte
+//        short myShort2 = 32767; // happy
+//        short myShort3 = 32768; // unhappy
+
+        char biggerShort = 32767; // allowed
+        char biggerShort2 = 64000; // allowed - as char has no negative (unsigned)
+
+        // In order to allow for negative nad positive what thesee data tpyes will genreally do is they will take the last bit and use that just to idiciate whether that number is negaitve or psoitive,
+        // but if you dont need that last bit to indicatethe sign of that number then you have effectively doubled the range, and so a char is a not signed  it is unsigned meaning all the values in it are positive, and therefore it has a psotive range that is twice that of a SHORT.
+        // Same number of values but shifted to positive, rather than a short which is roughly half negative half psoitive.
 
 
     }
