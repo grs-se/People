@@ -154,6 +154,48 @@ public class NumberStuff {
         // still receiving an approximation and not exact value
         // floats and doubles best results you can get are very very close approximations - so be very careful especially when it comes to money!
 
+        // BEYOND DECIMAL
+        byte anotherByte = 0x1f; // x says use hexadecimal = 0x1f = valid number
+        int binaryInt = 0b0101011101; // 0b = binary, can't use any other number
+        // each of thee places in binary can be thought of as a toggle switch, it's on (1) or off (0)
+
+//        int binaryInt3 = 0b011; // = 3
+//        int binaryInt3 = 0b01 | 0b10 ; // # almost like binary addition
+//        int binaryInt3 = 1 | 2; // = 3 #
+//        int binaryInt3 = 1 | 2 | 4; = 7 'or'ing these together, | i.e. or almost like addition here
+        int binaryInt3 = 0b01 | 0b10 | 0b100; // = 7
+//        int binaryInt3 = 1 | 2 | 4 | 8;
+//        int binaryInt3 = 3;
+
+
+//        int binaryInt4 = 0b01 | 0b10 | 0b100; // = 7
+
+
+        NumberStuff myInstance = new NumberStuff();
+        System.out.println(binaryInt3);
+
+        // if we wanted to know programmitcally which is turned on is with binary math, binary AND.
+        // all the inputs have to be on or set to 1 for an output to be 1
+        // so if you have a 0 the output will be 0, so 1 and 0 yields a 0
+        // only a 1 and a 1 can yield a 1
+        // BIT MASK = start off with a known number say 4 (100 in binary), if this number has the 4 place set to 1 or on and we end it with a 4 then we would get a 4 out and that's how we would know if this were on or not.
+        System.out.println(binaryInt3 & 4); // = 4, because we do have the 4th place bit enabled
+        int binaryInt4 = 0b01 | 0b10 | 0b000; // = 7
+        System.out.println(binaryInt4 & 4);
+        // BIT Masks used in internet or IP addresses 192.168.1.1 (these are actually bytes)
+        // in networking these are called Octets - meaning a grouping of 8 (bits)
+        // 192.168.1.1 = IP Address
+        // 5.5.5.3
+        // 0b0101 0b0101 0b0101 0b0011 - 0101 0101 0101 0011
+        // SOmetimes routers have a setting called 'Network Mask', that mask is the same as 'int & 4'
+        // Internet Protocal Address - can be thougt of as a city and street address - or 2 groupings, Network and Host address will be encapsulated inside the total IP address.
+        // Where does the network address end and the host address begin? you use a
+
+        // 2 things to keep in mind: SOmetimes helpful to hear the high level of how things are working - vaguely familiar
+        // the deeper you get into programming the more you see little hints and glimpses of how things work
+        //
+
+
     }
 
 
