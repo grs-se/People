@@ -116,6 +116,43 @@ public class NumberStuff {
         // but if you dont need that last bit to indicatethe sign of that number then you have effectively doubled the range, and so a char is a not signed  it is unsigned meaning all the values in it are positive, and therefore it has a psotive range that is twice that of a SHORT.
         // Same number of values but shifted to positive, rather than a short which is roughly half negative half psoitive.
 
+// FLOATING POINT NUMBER
+        // FLOAT and DOUBLE
+        // float shares same number of bits as Int (32) and double is 64
+        // float and double store values differently
+        // 'exponent' | 'mantisa'
+        // store fractional values in binary
+        // 1/10 1/100 1/1000 for decimal
+        // instead of 2,4,8,16, etc we have 1/2, 1/4, 1/8, 1/16, 1/32, 1/64 - instead of base 10 its base2
+        // 0.5 in binary = 0.1, 0.75 in binary = 0.11, 3.141592 in binary =
+        // find the largest fraction that would fit in
+        // . 1/2 1/4 1/8 1/16 1/32 1/64 1/128
+        // . 0 0 1 0 0 1 0 0 0 1 = approximation of .141592
+        // representing fractions in binary - for fractions whose decimal equivlent is never ending like Pi, or whose decimal equiveltn is so long that it would exceed all of the bits you are willing to allocate in your computer, the best you can ever do when trying to represnet such numbers in binary is to approximate those numebrs.
+        // this is usually ok for scientific and engineering calulcations, but when it comes to money, where calculations need to be fairly precise, it wont do at all!
+        // 32 bits allocated for float
+        // there are a lot of fractional numbers that cannot be adequately represnted by these 23 bits to right of decimal, decimal itself takes up 8 (hence floating point)
+        //
+        // when the computer repsents a number like 3.11592 in float or double, the steps it will go through are: it will not attempt to store the number directly, instead it will try to get hte number to a format that is more compatible with the way that it internally sotres things.
+        // it will take the number and determine wheter it is bigger than 2, and keep dviiding the number until it is less than 2, in this case ti would only have to do it 1 time, and it would also keep track of the number of times it has to divide it by 2, that number of times would then be added to the number 127, so in this case 128 becaus it would only have to dvide once, would be econded here in the exponent area, and so this dividision by 2 is the equivalent to moving the decimal place.
+        // So once the number has been divided enough times to get it less than 2 then it can be as we did before.
+        // not exactly as we did, there are proper mathematical means, but basic gist
+        // this is standard that goes beyond Java
+
+        double myDouble = 3.141592;
+//        float myFloat = 3.141592; // error Required type float Provided double
+        float myFloat2 = 3.141592f; // f or F after number otherwise java assumes you want double by default
+
+        // Issues that can arise from perfomring calculations with floating-point data types
+        double num1 = 2.15;
+        double num2 = 1.10;
+        System.out.println(num1 - num2); // should be 1.5 but get 1.0499999999999998
+        // why? these decimal values ave to approximated when being stored in binary, with the number of bits we have available to us
+        float num3 = 2.15F;
+        float num4 = 1.10F;
+        System.out.println(num3 - num4);// should be 1.5 but get 1.0500001
+        // still receiving an approximation and not exact value
+        // floats and doubles best results you can get are very very close approximations - so be very careful especially when it comes to money!
 
     }
 
