@@ -159,5 +159,18 @@ public class MathStuff {
         System.out.println(secureRandom.nextInt(10));
         System.out.println(secureRandom.nextInt(10));
 
+        // CALCULATE AREA OF A CIRCLE
+        System.out.println(calcAreaOfCircle(3));
+    }
+
+    /**
+     * This method calculates the area of a circle
+     * It uses the formula: area = PI * radius^2
+     * @param radius
+     * @return
+     */
+    public static double calcAreaOfCircle(double radius) {
+        // A = Pi * r^2 : r = radius of circle
+        return Math.PI * Math.pow(radius, 2);
     }
 }
