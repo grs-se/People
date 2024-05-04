@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -171,6 +172,7 @@ public class MathStuff {
 
         //
         comparingNumbers();
+        introducingBigDecimal();
     }
 
     /**
@@ -221,5 +223,33 @@ public class MathStuff {
 //        if (num1 >= num2) {
 //
 //        }
+    }
+
+    public static void introducingBigDecimal() {
+        // Anytime you need to do money calculations you have to use BigDecimal, end of story!
+        // scientific or engineering may want to strongly consider using BigDecimal too, depending level of accuracy needed.
+        // Since float and double have been show to give unintended results depending on what calculations you ask them to do, why bother using them at all?
+        // the reason for using float, double, and all primitive number types is because they are blazingly fast.
+        // there is a cost to having the level of accuracy that we get with BigDecimal.
+        // BigDecimal and BigInteger store the data differently, and go through a series of operaitons to do so, and are capable of growing to be as big as you may need them to be.
+        // comes at fairly siginificant cost.
+        // by default use the primitive number types when you know you can get away with it.
+        // only when you need the absolutely high degree of accuracy that you switch to BigDecimal or BigInteger.
+        // Big Decimal is a class not a primative
+        // a primative is a fundamental data types built in to Java
+        float num1 = 2.15f;
+        float num2 = 1.10f;
+
+        System.out.println();
+
+        // specify a number inside a string
+        // if we were to use a float or double, which we could do, but we would introduce the rounding issues, becuase the computer has to immiedately put that into a float or double becaus eof the binary representation of the bits
+        // so to avoid that the best solution is to use a string so that you are 100% telling Bigdecimal what you meant, and not allowing some other data type to interpret it.
+        BigDecimal num3 = new BigDecimal("2.15");
+        BigDecimal num4 = new BigDecimal("1.10");
+        // System.out.println(num3 - num4); // math operators only work on primitives not a class
+        // however since bigdecimal is a class it has methods on it
+        System.out.println(num3.subtract(num4));
+
     }
 }
