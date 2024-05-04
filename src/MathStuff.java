@@ -86,5 +86,49 @@ public class MathStuff {
         myFlag = !myFlag;
         System.out.println(myFlag);
 
+        ///////////////////
+        // STANDARD MATH FUNCTIONS (Math methods in Java)
+        ///////////////////
+        System.out.println(Math.abs(-5)); // = 5: gives us absolute value = taking that number and stripping any negative value from it, so absolute value of -5 should be +5 or 5;
+        System.out.println(Math.ceil(5.0)); // 5.0: Math.ceil wants to round up to an integer, anything even infinitesimally larger than 5.0 will get rounded up to 6
+        System.out.println(Math.ceil(5.01)); // 6.0: Math.ceil wants to round up to an integer, anything even infinitesimally larger than 5.0 will get rounded up to 6
+        System.out.println(Math.ceil(5.4)); // 6.0
+        System.out.println(Math.ceil(5.6)); // 6.0
+        System.out.println(Math.floor(5.0)); // 5.0 : Math.floor wants to go down to the floor
+        System.out.println(Math.floor(5.999)); // 5.0
+        System.out.println(Math.floor(5.6)); // 5.0
+        int num11 = 3;
+        int num22 = 5;
+        System.out.println(Math.min(num11, num22)); // =3: Will return whichever value is the smaller one, the minimum one. You may not know what the input might be so you don't know which is smaller.
+        System.out.println(Math.max(num11, num22)); // =5: Gives us the larger value
+
+        System.out.println(Math.pow(2, 3)); // = 8.0: 2 to the power of 3. Returns doubles
+
+        System.out.println(Math.random()); //0.6357803354604953: Very useful function. Pseudo random. Computers are not good at generating random numbers at all. How can a computer generate anything random? So this random function is good for simple use cases like a card game, but not for security cases.
+        System.out.println(Math.random()); //0.655405942598385
+        System.out.println(Math.random()); //0.7094378378209619
+        // typically to use this random function in a useful way you need to multiply its output times whatever your upper range is
+        // s if want numbers between 0 and 10 you need to multiply by 10
+        // you're never going to actually get the value of 10 out of this, the highest it will go is something less than 10, like 9.0123
+        // this function never returns 1.02 it returns something greater than 0 but less than 1
+        System.out.println(Math.random() * 10); //4.9342167869635
+        // whole numbers:
+        System.out.println((int)(Math.random() * 10)); //0
+        System.out.println((int)(Math.random() * 10)); //6
+        System.out.println((int)(Math.random() * 10)); //9
+        // notice how we are casting this to int we are able to now get 0
+        // the math.random function will never return 0, always greater than 0
+        // however it is possible for values that are less than 1 to become a 0 when they are case to an integer
+        System.out.println(Math.round(5.0)); // 5
+        System.out.println(Math.round(5.2)); // 5
+        System.out.println(Math.round(5.4)); // 5
+        System.out.println(Math.round(5.5)); // 6
+        System.out.println(Math.round(5.999)); // 6
+
+        //
+        // MATH CONSTANTS
+        System.out.println(Math.PI);
+        System.out.println(Math.E);
+
     }
 }
