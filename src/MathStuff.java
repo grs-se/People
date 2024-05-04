@@ -168,6 +168,9 @@ public class MathStuff {
 //        System.out.println(calcCentripetalForce(0.2, 3.504));
 
         System.out.println(calcCentripetalForce(.2,.8, 3));
+
+        //
+        comparingNumbers();
     }
 
     /**
@@ -199,5 +202,24 @@ public class MathStuff {
         double pathVelocity = calcPathVelocity(radius, period);
         double centripetalAccel = calcCentripetalAcceleration(pathVelocity, radius);
         return calcCentripetalForce(mass, centripetalAccel);
+    }
+
+    // COMPARING NUMBERS
+    public static void comparingNumbers() {
+        int num1 = 3;
+        int num2 = 3;
+        System.out.println(num1 == num2); // == no memory comparison, just trying to work out if the two numbers are the same
+        // = assignment operator, == equals operator (equal to each other or point to the same memory location if objects)
+
+        System.out.println(num1 > num2);  // Greater than / Less than
+
+        System.out.println(num1 >= num2); // greater than or equal to
+
+        System.out.println(num1 != num2); // not equal to
+
+        // comparisons generally used with if statements
+//        if (num1 >= num2) {
+//
+//        }
     }
 }
