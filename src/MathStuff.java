@@ -159,8 +159,15 @@ public class MathStuff {
         System.out.println(secureRandom.nextInt(10));
         System.out.println(secureRandom.nextInt(10));
 
-        // CALCULATE AREA OF A CIRCLE
-        System.out.println(calcAreaOfCircle(3));
+//        System.out.println(calcAreaOfCircle(3));
+//
+//        System.out.println(calcPathVelocity(0.8, 3));
+//
+//        System.out.println(calcCentripetalAcceleration(1.67, 0.8));
+//
+//        System.out.println(calcCentripetalForce(0.2, 3.504));
+
+        System.out.println(calcCentripetalForce(.2,.8, 3));
     }
 
     /**
@@ -169,8 +176,28 @@ public class MathStuff {
      * @param radius
      * @return
      */
-    public static double calcAreaOfCircle(double radius) {
+    private static double calcAreaOfCircle(double radius) {
         // A = Pi * r^2 : r = radius of circle
         return Math.PI * Math.pow(radius, 2);
+    }
+
+    private static double calcPathVelocity(double radius, double period) {
+        double circumference = 2 * Math.PI * radius;
+        return circumference / period;
+    }
+
+    private static double calcCentripetalAcceleration(double pathVelocity, double radius) {
+        return Math.pow(pathVelocity, 2) / radius;
+    }
+
+    private static double calcCentripetalForce(double mass, double accel) {
+        return mass * accel;
+    }
+
+    // Method overloading - as long as inputs are different you can have the same name for the method
+    public static double calcCentripetalForce(double mass, double radius, double period) {
+        double pathVelocity = calcPathVelocity(radius, period);
+        double centripetalAccel = calcCentripetalAcceleration(pathVelocity, radius);
+        return calcCentripetalForce(mass, centripetalAccel);
     }
 }
