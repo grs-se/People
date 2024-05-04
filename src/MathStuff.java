@@ -1,3 +1,6 @@
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class MathStuff {
     public static void main(String[] args) {
         System.out.println(3 + 5 + 2 + 7);
@@ -129,6 +132,32 @@ public class MathStuff {
         // MATH CONSTANTS
         System.out.println(Math.PI);
         System.out.println(Math.E);
+
+        //
+        // BETTER RANDOMNESS GENERATOR:
+        // if you were to call Math.random 1 million times you might notice certain patterns, certain numbers appearning more frequently than you would expect from a random generator that has whats called an even distribution across all of its range
+        // Math.random() actually less efficient than using the Random() class.
+        // Random wins again Math.random() in basically every way other than ease of typing for developer.
+        Random random = new Random();
+//        Random random = new Random(975291);
+        // on initiating creates a seed - an initial starting point number
+        // convenient methods
+        System.out.println(random.nextInt()); // -955785397
+        // big range of boundaries if you dont supply a bound
+        System.out.println(random.nextInt(10)); // 8
+        System.out.println(random.nextInt(10)); // 9
+        System.out.println(random.nextInt(10)); // 1
+
+        // even Random() generator approach is not suitable for cryptography.
+
+        // however SecureRandom is cryptographically safe:
+        // A cryptographically strong random number minimally complies with the statistical random number generator tests specified in FIPS 140-2, Security Requirements for Cryptographic Modules, section 4.9.1. Additionally, SecureRandom must produce non-deterministic output. Therefore, any seed material passed to a SecureRandom object must be unpredictable, and all SecureRandom output sequences must be cryptographically strong, as described in RFC 4086: Randomness Requirements for Security.
+        SecureRandom secureRandom = new SecureRandom();
+        System.out.println(secureRandom.nextInt(10));
+        System.out.println(secureRandom.nextInt(10));
+        System.out.println(secureRandom.nextInt(10));
+        System.out.println(secureRandom.nextInt(10));
+        System.out.println(secureRandom.nextInt(10));
 
     }
 }
