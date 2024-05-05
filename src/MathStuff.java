@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.security.SecureRandom;
@@ -270,6 +271,36 @@ public class MathStuff {
                 .min(new BigDecimal("1200"))
                 .abs()
                 .remainder(new BigDecimal(8)));// same as modulo %
+
+        ///////////
+        // MORE ON BIG DECIMAL AND BIG INTEGER
+        ///////////
+        // GOAL OF BIG DECIMAL IS MAXIMUM ACCURACY AND PRECISION
+        // USE A STRING WHENEVER POSSIBLE
+        // a few more things we can do with BigDecimal
+        // probably prefer not to use in most circumstances unless you have to
+        // using a string should always be your prefered chocie of isntantiated a big decimal as it will give maximum precision
+        // alternative constructors:
+        // a character array - possibly as good as a string but a bit less convenient
+        BigDecimal num5 = new BigDecimal(3.141592);
+
+        // other methods available on BigDecimal
+        // methods to convert from BigDecimal to other numeric types
+
+//        byte myByte = 100;
+        BigDecimal num6 = new BigDecimal("3.141592");
+        byte b = num6.byteValue();
+        System.out.println(b); // = 3 - stripped off fractions as can't encode decimal
+
+        BigDecimal num7 = new BigDecimal("1024");
+        System.out.println(num7.floatValue()); // 1024.0
+        System.out.println(num7.toString()); // 1024 // convert value of bigdecimal to a string, useless in this case as started off as a string int he first place/ though number of good reasons why you might want to, presenting to users in a presentation for example
+
+        BigInteger myInt = new BigInteger("1232353452452345"); // capable of representing integers much larger than any of the other primitive data types for numbers, even a long which has 64 bits (quintillions)
+        // How is BigDecimal able to get around the rounding problems? BigDecimal uses a BigInteger // has to keep track of how many times it moved the decimal, so that when it's done doing its calculations it can put the decimal back.
+        // by converting a number with a fractional component into a number with no fractional components, suddnely maintaining precision becomes a lot easier and doing the math is pretty stragihtforward, and then just put the decimal point back.
+        // stores these newly created integers inside of a big integet/
+        // actually pretty strightforward
 
     }
 }
