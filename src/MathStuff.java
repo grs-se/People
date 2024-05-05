@@ -301,6 +301,7 @@ public class MathStuff {
         // by converting a number with a fractional component into a number with no fractional components, suddnely maintaining precision becomes a lot easier and doing the math is pretty stragihtforward, and then just put the decimal point back.
         // stores these newly created integers inside of a big integet/
         // actually pretty strightforward
-
     }
+
+
 }
