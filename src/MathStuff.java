@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -171,8 +173,13 @@ public class MathStuff {
         System.out.println(calcCentripetalForce(.2,.8, 3));
 
         //
+        init();
+
+    }
+
+    public static void init() {
         comparingNumbers();
-        introducingBigDecimal();
+        usingBigDecimal();
     }
 
     /**
@@ -225,7 +232,7 @@ public class MathStuff {
 //        }
     }
 
-    public static void introducingBigDecimal() {
+    public static void usingBigDecimal() {
         // Anytime you need to do money calculations you have to use BigDecimal, end of story!
         // scientific or engineering may want to strongly consider using BigDecimal too, depending level of accuracy needed.
         // Since float and double have been show to give unintended results depending on what calculations you ask them to do, why bother using them at all?
@@ -250,6 +257,19 @@ public class MathStuff {
         // System.out.println(num3 - num4); // math operators only work on primitives not a class
         // however since bigdecimal is a class it has methods on it
         System.out.println(num3.subtract(num4));
+        //
+        // USING BIG DECIMAL
+        MathContext mc = new MathContext(7, RoundingMode.HALF_UP);
+        System.out.println(new BigDecimal(.3146683)
+                .add(new BigDecimal("5.321"))
+                .subtract(new BigDecimal("2.154"))
+                .multiply(new BigDecimal("21"))
+                .divide(new BigDecimal(".874920"), mc) // with divide have to specify amount of precision - what rounding strategy do we want to use?
+                .sqrt(mc)
+                .max(new BigDecimal("13"))
+                .min(new BigDecimal("1200"))
+                .abs()
+                .remainder(new BigDecimal(8)));// same as modulo %
 
     }
 }
