@@ -7,9 +7,9 @@ public class GuessingGame {
         /////////
         // generate number between 1 and 3
         // as a programmer we often need to transform data from this to that
-        // 0 - 2, 1 - 3
-        int randomNum = new Random().nextInt(5) + 1;
-        System.out.printf("Generated number is: %d.%n", randomNum);
+//        // 0 - 2, 1 - 3
+//        int randomNum = new Random().nextInt(5) + 1;
+//        System.out.printf("Generated number is: %d.%n", randomNum);
 
 
         // if statement evaluates to a boolean
@@ -80,34 +80,56 @@ public class GuessingGame {
 //                break;
 //        }
 
+        //////////////////
 //        String command = "stop";
-        String command = null;
+//        String command = null;
+//
+//        // Most people consider switch statements to be more readable, and switch statements run faster than if statements, due to compiler optimizations
+//        // however, the break statements can be easy to forget and not elegant, and not easy way to test for null variables (in versions prior to Java 17)
+//        // recommendation against nested if else blocks if possible
+//        if (command == null) {
+//
+//        } else {
+//            switch (command) {
+//                case "stop":
+//                    System.out.println("Stopping now...");
+//                    // don't need break here!?
+//                case "go":
+//                    System.out.println("Going now...");
+//                default:
+//                    System.out.println("Command not understood");
+//            }
+//         }
+        ////////////////
 
-        // Most people consider switch statements to be more readable, and switch statements run faster than if statements, due to compiler optimizations
-        // however, the break statements can be easy to forget and not elegant, and not easy way to test for null variables (in versions prior to Java 17)
-        // recommendation against nested if else blocks if possible
-        if (command == null) {
+        ////////////////
+        // BLACKJACK
+        String card = "king";
+        int currentTotalValue = 15;
 
-        } else {
-            switch (command) {
-                case "stop":
-                    System.out.println("Stopping now...");
-                    // don't need break here!?
-                case "go":
-                    System.out.println("Going now...");
-                default:
-                    System.out.println("Command not understood");
+        // in previous versions of Java couldn't use a switch statement to return and assign a value to something
+        // you could print something out, call other methods, or execute statements, but couldnt use a switch statement to return a value
+        int currentValue = switch (card) { // can assign a value to the switch statement, returns a value
+            // new syntax post Java 14
+            // can combine multiple constants which are all going to have same value
+            case "king", "queen", "jack" -> 10;
+            case "ace" -> {
+                if (currentTotalValue < 11) {
+                    // if in a method then could use return statement: return 10
+                    // doesn't make sense to use return within a case section of a switch clause
+                    // as of Java 14 can use yield which is basically the same thing
+                    yield 11;
+                } else {
+                    yield 1;
+                }
             }
+            default -> Integer.parseInt(card);
+        };
+//        System.out.println(currentValue);
+        System.out.printf("Current Card Value: %d%n", currentValue);
+        System.out.printf("Total value: %d%n", currentTotalValue + currentValue);
+
+        ////////////////
 
     }
-
-
-
-
-
-
-
-    }
-
-
 }
