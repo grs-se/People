@@ -255,7 +255,8 @@ public class NumberStuff {
     // Wrapper classes are among the easiest ways to do this.
 
 
-
+    // Relationship between control flow, threads and CPU Cores
+    // More Cores = more simultaneous threads, seperately but at the same time
 
 
 
