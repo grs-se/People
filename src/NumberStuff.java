@@ -65,7 +65,7 @@ public class NumberStuff {
         // 'Most significant bit'
         // important concept: combination of the amount of space that we take up in the computer vs the largest range of numbers that we need to represnet, that helps up to decide what data type we shoudl use
         // why not use the largest data type? because it would be wasteful of memory
-       // typically we want to use the smallest data type that would enable us to achieve what we want to do
+        // typically we want to use the smallest data type that would enable us to achieve what we want to do
 
         // After Booleans and bytes, a SHORT is a the next smallest type
         // SHORT (-32,768 to 32,767) = 16 bits (2 bytes)
@@ -194,9 +194,65 @@ public class NumberStuff {
         // 2 things to keep in mind: SOmetimes helpful to hear the high level of how things are working - vaguely familiar
         // the deeper you get into programming the more you see little hints and glimpses of how things work
         //
+//    }
 
+        ////////////
+        // NUMERIC WRAPPER CLASSES
+        ////////////
+
+//        public static void NumericWrapperClasses() {
+            int num7 = 7;
+            // this shouldnt be happy, a primitive data type shouldnt be able to passed in to an Object parameter
+            storeData(num7);
+            // so for many of the most common primtiive numeric data types there are classes that represne the same concept, so even if it looks like we are passing a primitive numeric data type into a method that accepts an Object Java is converting that primtive integer into a wrapper class of type integer
+            Integer num7B = Integer.valueOf(num7); // returns a wrapper class of type integer
+            // Java does this automatically for us in the case where we're trying to pass a primtive integer into a method that takes an Object
+            // this is called 'Boxing' or 'Auto-Boxing'., putting our number in a box.
+            // So now this Integer is being represented as an object and can be passed into a method that expects an object.
+
+            Double myDouble2 = Double.valueOf(2353.12);
+            Float myFloat = Float.valueOf(23.354f);
+//        Float myFloat = Float.valueOf("23.354f");
+            // best to pass in string for Byte
+            Byte myByte2 = Byte.valueOf("23");
+
+            // Useful methods on these classes
+//        num7B.compareTo();
+//        myFloat.toString()
+//        myDouble.isNaN()
+
+            int age = Integer.parseInt(args[0]);
+            double amount = Double.parseDouble("345.12");
+//        Byte.parseByte();
+//        Float.parseFloat();
+//        Boolean.parseBoolean("false");
+            System.out.printf("You will be %d age in 15 years,%n", age + 15);
+        }
+
+
+    // NUMERIC WRAPPER CLASSES
+    // Primitives are not based on classes or objects, they are low level numbers that work very efficiently on the micro processor level, fastest possible processing power and calculating power that you can on your computer, because they are passed natively to the processor.
+    // however, with some data types you can lose precision with these primitive data types - floating point
+    // Wrapper classes wrap the primitive numeric types
+    // don't want to have to think about what the data type should be, whatever it is store it somehow
+    // in Java all classes of Java eventually extend from one primary super class called 'Object', and one of the beautiful things about Object Oriented Programming is you can always refer to a class by that classes Super class.
+    // So if we want to be able to have a method that can accept any data type at all we could define this method as simply accepting something of type Object, because Object is the parent type of all classes throughout Java, there is no such thing as a class that does not eventually inherit either directly or indirectly fromt he Object class and so we can use this Object type always
+    // this is not usualyl a geat idea to do, you usually want to be more specific, so you can have more meaning, hwoever in this case where you want to accept anything at all it may be the best thing you can do.
+
+    //
+    /**
+     * Takes in any type of data and stores it somewhere generically
+     */
+    public static void storeData(Object obj) {
+        // do something with obj
 
     }
+
+    // As a professional programmer one thing you will have to do from time to time is taking some kind of input from a user interface.
+    // a form in a web browser
+    // typically all the information that they enter regardless of what it rrepresents will come to you in the form of text usually
+    // even a users age, will come as a string, so youd have to conver thtat text rerepsentation into a number.
+    // Wrapper classes are among the easiest ways to do this.
 
 
 

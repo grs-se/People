@@ -44,7 +44,7 @@ public class CompoundInterestCalc {
         System.out.printf("$%.2f%n", balance); // $163270.02 # 2 decimal places
         System.out.printf("$%,.2f%n", balance); // $163,270.02 # comma flag = grouping
         System.out.printf("$%,(.2f%n", balance.negate()); // $(163,270.02) # negative numbers # ( = just a flag, not explicitly telling where to put the parentheses;
-    // Only scratching the surface with printf, check docs
+        // Only scratching the surface with printf, check docs
         // Far more formatting options, espeically with Date and Time
         // can also use format() method, printf() actually calls the format() method; printf inspired by C lang, Java wanted to have same method name
         System.out.format("$%,(.2f%n", balance.negate()); // $(163,270.02)
@@ -54,5 +54,6 @@ public class CompoundInterestCalc {
         // Let's say you want to append or concatenate a bunch of strings beyond just 1 value
         // i.e. myMoney.concat().split()
         // professionally going to use String.format() to format data, rather than just printf or printLn,
+
     }
 }
