@@ -147,5 +147,9 @@ public class GuessingGame {
                 System.out.println("You didn't get it!");
             }
         }
+        ///////////
+        // SWITCH STATEMENT PATTERN MATCHING
+
+
     }
 }
