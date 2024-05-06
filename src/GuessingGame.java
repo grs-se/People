@@ -131,5 +131,21 @@ public class GuessingGame {
 
         ////////////////
 
+        // WHILE LOOPS
+        // When we use the java command to execute a java programme we are actually pointing it at the final byte code version that Java built for us, and so we have to tell Java where that is.
+        // That folder is under the out/ folder.
+        // terminal command: ' java -cp .\out\production\People GuessingGame'
+        int randomNum = new Random().nextInt(10) + 1;
+        while (true) {
+            // console = related to computer and monitor?
+            String guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
+            int guessedNum = Integer.parseInt(guessedNumStr);
+            if (guessedNum == randomNum) {
+                System.out.printf("The random number was %d. You got it!%n", randomNum);
+                return;
+            } else {
+                System.out.println("You didn't get it!");
+            }
+        }
     }
 }
