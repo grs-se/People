@@ -22,6 +22,27 @@ public class GuessingGame {
         } else {
             System.out.println("The color is POLKA-DOT");
         }
+
+        // CONTROL FLOW INEQUALITIES
+        if (randomNum <= 2) { //
+            System.out.println("The color is RED");
+        } else if (randomNum >= 4) {
+            System.out.println("The color is BLUE");
+        } else {
+            System.out.println("The color is GREEN");
+        }
+
+        // COMPOUND STATEMENTS
+        if (randomNum <= 2) { //
+            System.out.println("The color is RED");
+        }
+        // randomNum bigger than 4 and is even number
+        else if (randomNum >= 4 && (randomNum % 2 == 0)) {
+//        else if (randomNum >= 4 || (randomNum % 2 == 0)) {
+            System.out.println("The color is BLUE");
+        } else {
+            System.out.println("The color is GREEN");
+        }
     }
 
 
