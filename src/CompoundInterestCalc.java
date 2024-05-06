@@ -8,6 +8,7 @@ public class CompoundInterestCalc {
 
     // final: should not be changed after it has been created. Make final if possible.
     // NumberFormat returns your locale by default
+    // should prefer to use these NumberFormat methods
     private static final NumberFormat moneyFormatter = NumberFormat.getCurrencyInstance();
     private static final NumberFormat percentFormatter = NumberFormat.getPercentInstance();
 
@@ -37,5 +38,21 @@ public class CompoundInterestCalc {
         System.out.println(df.format(balance)); // £163,270.02
         System.out.println(df.format(balance.negate())); // £(163,270.02)
         System.out.println(pf.format(.08));
+        //
+        // Additional ways to format numbers:
+        System.out.printf("%f%n", balance); // 163270.020925 # format this variable as a floating point number and then put a new line after it: %f = floating point, %n = smart enough to new line across different platforms
+        System.out.printf("$%.2f%n", balance); // $163270.02 # 2 decimal places
+        System.out.printf("$%,.2f%n", balance); // $163,270.02 # comma flag = grouping
+        System.out.printf("$%,(.2f%n", balance.negate()); // $(163,270.02) # negative numbers # ( = just a flag, not explicitly telling where to put the parentheses;
+    // Only scratching the surface with printf, check docs
+        // Far more formatting options, espeically with Date and Time
+        // can also use format() method, printf() actually calls the format() method; printf inspired by C lang, Java wanted to have same method name
+        System.out.format("$%,(.2f%n", balance.negate()); // $(163,270.02)
+        // String.format() = same thing
+        String myMoney = String.format("$%,(.2f%n", balance.negate());
+        System.out.println(myMoney); // $(163,270.02)
+        // Let's say you want to append or concatenate a bunch of strings beyond just 1 value
+        // i.e. myMoney.concat().split()
+        // professionally going to use String.format() to format data, rather than just printf or printLn,
     }
 }
