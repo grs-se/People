@@ -1,6 +1,9 @@
 import java.util.Random;
 
 public class GuessingGame {
+
+    public static final int MAX_ALLOWED_TRIES = 4;
+
     public static void main(String[] args) {
         /////////
         // CONDITIONALS WITH IF/ELSE
@@ -170,6 +173,7 @@ public class GuessingGame {
         String guessedNumStr = null;
 
         int wrongGuessCount = 1;
+
         do {
             guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
             if (guessedNumStr.matches("-?\\d{1,2}")) {
@@ -180,13 +184,19 @@ public class GuessingGame {
                     // by default with printf or format each replacement code %d %s gets replaced with a corresponding variable in the order in which they come - %d (digit) = randomNum, %d = wrongGuessCount, %s = tryText
                     System.out.printf("The random number was %d. You got it in %d %s!%n", randomNum, wrongGuessCount, tryText);
                     return;
-                } else {
-                    // prepare things before presenting things
-                    wrongGuessCount++;
-                    System.out.println("You didn't get it!");
                 }
+                // prepare things before presenting things
+                System.out.println("You didn't get it!");
+                wrongGuessCount++;
             }
-        }  while (!"q".equals(guessedNumStr));
+        }  while (!"q".equals(guessedNumStr) && wrongGuessCount <= MAX_ALLOWED_TRIES);
+
+        if (wrongGuessCount >= MAX_ALLOWED_TRIES) {
+            System.out.printf("You've had %d incorrect guesses. The random number is %d. Ending program now.", wrongGuessCount-1, randomNum);
+        }
+        // both parts have to be true to evaluate to true
+        // didn't press q = 1, less than 5 wrong guesses = 1 --> loop continues
+        // any other scenario and the loop will stop
 
         // SCOPE
         // any time you record a variable in a code block
