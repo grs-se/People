@@ -1,4 +1,4 @@
-import static java.lang.StringTemplate.STR;
+//import static java.lang.StringTemplate.STR;
 
 public class PatternMatching {
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class PatternMatching {
             case Person p
                     when p.firstName().length() > 3
                     -> System.out.println("Looks like Jake");
-            case String[] arr -> System.out.println(STR."Looks like an array with \{arr.length} elements");
+//            case String[] arr -> System.out.println(STR."Looks like an array with \{arr.length} elements");
             default -> System.out.println("Have no idea");
         }
     }

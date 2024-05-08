@@ -136,18 +136,28 @@ public class GuessingGame {
         // That folder is under the out/ folder.
         // terminal command: ' java -cp .\out\production\People GuessingGame'
         int randomNum = new Random().nextInt(10) + 1;
-        while (true) {
-            // console = related to computer and monitor?
-            String guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
-            int guessedNum = Integer.parseInt(guessedNumStr);
-            if (guessedNum == randomNum) {
-                System.out.printf("The random number was %d. You got it!%n", randomNum);
-                return;
-            } else {
-                System.out.println("You didn't get it!");
+
+        // console = related to computer and monitor?
+        // can't call a method on a null object
+        String guessedNumStr = null;
+        // while (guessedNumStr.equals("q")) {
+        // flip around: "q" will always exist as it is hardcoded
+        while (!"q".equals(guessedNumStr)) {
+            guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
+            // nested if statements (inside while loops) increase complexity of the programme
+            // probably not the best way, more complex to process in head
+            // somewhat realistic scenario to use a reg ex
+            if (guessedNumStr.matches("-?\\d{1,2}")) {
+                int guessedNum = Integer.parseInt(guessedNumStr);
+                if (guessedNum == randomNum) {
+                    System.out.printf("The random number was %d. You got it!%n", randomNum);
+                    return;
+                } else {
+                    System.out.println("You didn't get it!");
+                }
             }
         }
-        ///////////
+            ///////////
         // SWITCH STATEMENT PATTERN MATCHING
 
 
