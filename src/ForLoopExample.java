@@ -24,7 +24,7 @@ public class ForLoopExample {
         // for (int counter=0; counter<fruits.length; counter++) {
         // good if you don't need an index
         for (String fruit : fruits) {
-            System.out.printf("The current fruits is %s%n", fruits[counter]);
+            System.out.printf("The current fruits is %s%n", fruit);
         }
     }
 }
