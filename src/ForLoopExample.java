@@ -1,5 +1,8 @@
+import java.sql.SQLOutput;
+
 public class ForLoopExample {
     public static void main(String[] args) {
+        /*
         int counter;
         for (counter=0; counter < 10; counter++) {
             System.out.printf("Counter is %d%n", counter + 1);
@@ -12,5 +15,16 @@ public class ForLoopExample {
         // for (counter=0; ; ;) {
 
         // counter = 5;
+         */
+
+        //////////
+        // Enhanced For Loop
+        //////////
+        String[] fruits = {"apple", "orange", "pear", "plum"};
+        // for (int counter=0; counter<fruits.length; counter++) {
+        // good if you don't need an index
+        for (String fruit : fruits) {
+            System.out.printf("The current fruits is %s%n", fruits[counter]);
+        }
     }
 }
