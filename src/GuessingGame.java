@@ -5,106 +5,113 @@ public class GuessingGame {
     public static final int MAX_ALLOWED_TRIES = 4;
 
     public static void main(String[] args) {
+        /*
         /////////
         // CONDITIONALS WITH IF/ELSE
         /////////
         // generate number between 1 and 3
         // as a programmer we often need to transform data from this to that
-//        // 0 - 2, 1 - 3
-//        int randomNum = new Random().nextInt(5) + 1;
-//        System.out.printf("Generated number is: %d.%n", randomNum);
+        // 0 - 2, 1 - 3
+        int randomNum = new Random().nextInt(5) + 1;
+        System.out.printf("Generated number is: %d.%n", randomNum);
 
 
         // if statement evaluates to a boolean
         // if the statement evaluates to false the thread skips the if block and jumps to the next line of execution
-//        if (randomNum == 1) {
-//            System.out.println("The color is RED");
-//        } else if (randomNum == 2){
-//            System.out.println("The color is GREEN");
-//        } else if (randomNum == 3) {
-//            System.out.println("The color is BLUE");
-//        } else {
-//            System.out.println("The color is POLKA-DOT");
-//        }
+        if (randomNum == 1) {
+            System.out.println("The color is RED");
+        } else if (randomNum == 2){
+            System.out.println("The color is GREEN");
+        } else if (randomNum == 3) {
+            System.out.println("The color is BLUE");
+        } else {
+            System.out.println("The color is POLKA-DOT");
+        }
 
         // CONTROL FLOW INEQUALITIES
-//        if (randomNum <= 2) { //
-//            System.out.println("The color is RED");
-//        } else if (randomNum >= 4) {
-//            System.out.println("The color is BLUE");
-//        } else {
-//            System.out.println("The color is GREEN");
-//        }
+        if (randomNum <= 2) { //
+            System.out.println("The color is RED");
+        } else if (randomNum >= 4) {
+            System.out.println("The color is BLUE");
+        } else {
+            System.out.println("The color is GREEN");
+        }
 
         // COMPOUND STATEMENTS
-//        if (randomNum <= 2) { //
-//            System.out.println("The color is RED");
-//        }
-//        // randomNum bigger than 4 and is even number
-//        else if (randomNum >= 4 && (randomNum % 2 == 0)) {
-////        else if (randomNum >= 4 || (randomNum % 2 == 0)) {
-//            System.out.println("The color is BLUE");
-//        } else {
-//            System.out.println("The color is GREEN");
-//        }
+        if (randomNum <= 2) { //
+            System.out.println("The color is RED");
+        }
+        // randomNum bigger than 4 and is even number
+        // else if (randomNum >= 4 || (randomNum % 2 == 0)) {
+        else if (randomNum >= 4 && (randomNum % 2 == 0)) {
+            System.out.println("The color is BLUE");
+        } else {
+            System.out.println("The color is GREEN");
+        }
 
         // THE SWITCH STATEMENT
-//        if (randomNum == 1) {
-//            System.out.println("The color is RED");
-//        } else if (randomNum == 2){
-//            System.out.println("The color is GREEN");
-//        } else if (randomNum == 3) {
-//            System.out.println("The color is BLUE");
-//        } else if (randomNum == 4) {
-//            System.out.println("The color is PURPLE");
-//        } else {
-//            System.out.println("The color is whatever");
-//        }
+        if (randomNum == 1) {
+            System.out.println("The color is RED");
+        } else if (randomNum == 2){
+            System.out.println("The color is GREEN");
+        } else if (randomNum == 3) {
+            System.out.println("The color is BLUE");
+        } else if (randomNum == 4) {
+            System.out.println("The color is PURPLE");
+        } else {
+            System.out.println("The color is whatever");
+        }
         // functionally equivalent to if/else statement
-//        switch (randomNum) {
-//            case 1:
-//                System.out.println("The color is RED");
-//                // if we don't have this break here the thread will keep moving through all the cases
-//                // tells the thread to the jump out of the switch block onto the next line, and if no next line then the program just ends
-//                // very easy to forget the break
-//                break;
-//            case 2:
-//                System.out.println("The color is GREEN");
-//            break;
-//            case 3:
-//                System.out.println("The color is BLUE");
-//                break;
-//            case 4:
-//                System.out.println("The color is PURPLE");
-//                break;
-//            default:
-//                System.out.println("The color is whatever");
-        // optional default break
-//                break;
-//        }
-
+        switch (randomNum) {
+            case 1:
+                System.out.println("The color is RED");
+                // if we don't have this break here the thread will keep moving through all the cases
+                // tells the thread to the jump out of the switch block onto the next line, and if no next line then the program just ends
+                // very easy to forget the break
+                break;
+            case 2:
+                System.out.println("The color is GREEN");
+            break;
+            case 3:
+                System.out.println("The color is BLUE");
+                break;
+            case 4:
+                System.out.println("The color is PURPLE");
+                break;
+            default:
+                System.out.println("The color is whatever");
+                // optional default break
+                break;
+        }
         //////////////////
-//        String command = "stop";
-//        String command = null;
-//
-//        // Most people consider switch statements to be more readable, and switch statements run faster than if statements, due to compiler optimizations
-//        // however, the break statements can be easy to forget and not elegant, and not easy way to test for null variables (in versions prior to Java 17)
-//        // recommendation against nested if else blocks if possible
-//        if (command == null) {
-//
-//        } else {
-//            switch (command) {
-//                case "stop":
-//                    System.out.println("Stopping now...");
-//                    // don't need break here!?
-//                case "go":
-//                    System.out.println("Going now...");
-//                default:
-//                    System.out.println("Command not understood");
-//            }
-//         }
-        ////////////////
+        */
 
+        /*
+        //////////////////
+        String command = "stop";
+        String command = null;
+
+        // Most people consider switch statements to be more readable, and switch statements run faster than if statements, due to compiler optimizations
+        // however, the break statements can be easy to forget and not elegant, and not easy way to test for null variables (in versions prior to Java 17)
+        // recommendation against nested if else blocks if possible
+        if (command == null) {
+
+        } else {
+            switch (command) {
+                case "stop":
+                    System.out.println("Stopping now...");
+                    // don't need break here!?
+                case "go":
+                    System.out.println("Going now...");
+                default:
+                    System.out.println("Command not understood");
+            }
+         }
+        ////////////////
+        */
+
+
+        /*
         ////////////////
         // BLACKJACK
         String card = "king";
@@ -128,45 +135,51 @@ public class GuessingGame {
             }
             default -> Integer.parseInt(card);
         };
-//        System.out.println(currentValue);
+        // System.out.println(currentValue);
         System.out.printf("Current Card Value: %d%n", currentValue);
         System.out.printf("Total value: %d%n", currentTotalValue + currentValue);
-
         ////////////////
+        */
 
+        /*
+        ////////////////
         // WHILE LOOPS
         // When we use the java command to execute a java programme we are actually pointing it at the final byte code version that Java built for us, and so we have to tell Java where that is.
         // That folder is under the out/ folder.
         // terminal command: ' java -cp .\out\production\People GuessingGame'
-//        int randomNum = new Random().nextInt(10) + 1;
-//
-//        // console = related to computer and monitor?
-//        // can't call a method on a null object
-//        String guessedNumStr = null;
-//        // while (guessedNumStr.equals("q")) {
-//        // flip around: "q" will always exist as it is hardcoded
-//        while (!"q".equals(guessedNumStr)) {
-//            guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
-//            // nested if statements (inside while loops) increase complexity of the programme
-//            // probably not the best way, more complex to process in head
-//            // somewhat realistic scenario to use a reg ex
-//            if (guessedNumStr.matches("-?\\d{1,2}")) {
-//                int guessedNum = Integer.parseInt(guessedNumStr);
-//                if (guessedNum == randomNum) {
-//                    System.out.printf("The random number was %d. You got it!%n", randomNum);
-//                    return;
-//                } else {
-//                    System.out.println("You didn't get it!");
-//                }
-//            }
-//        }
+        int randomNum = new Random().nextInt(10) + 1;
 
+        // console = related to computer and monitor?
+        // can't call a method on a null object
+        String guessedNumStr = null;
+        // while (guessedNumStr.equals("q")) {
+        // flip around: "q" will always exist as it is hardcoded
+        while (!"q".equals(guessedNumStr)) {
+            guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
+            // nested if statements (inside while loops) increase complexity of the programme
+            // probably not the best way, more complex to process in head
+            // somewhat realistic scenario to use a reg ex
+            if (guessedNumStr.matches("-?\\d{1,2}")) {
+                int guessedNum = Integer.parseInt(guessedNumStr);
+                if (guessedNum == randomNum) {
+                    System.out.printf("The random number was %d. You got it!%n", randomNum);
+                    return;
+                } else {
+                    System.out.println("You didn't get it!");
+                }
+            }
+        }
+        ////////////////
+        */
+
+        /*
         ////////////////
         // DO WHILE LOOP
         ////////////////
         // only distinction between while loop and do while loop is that
         // with the do while the body of the loop is guaranteed to run at least once
         // program seems to run exactly as before
+
         int randomNum = new Random().nextInt(10) + 1;
         System.out.printf("Random number is %d.%n", randomNum);
 
@@ -194,6 +207,7 @@ public class GuessingGame {
         if (wrongGuessCount >= MAX_ALLOWED_TRIES) {
             System.out.printf("You've had %d incorrect guesses. The random number is %d. Ending program now.", wrongGuessCount-1, randomNum);
         }
+
         // both parts have to be true to evaluate to true
         // didn't press q = 1, less than 5 wrong guesses = 1 --> loop continues
         // any other scenario and the loop will stop
@@ -212,6 +226,48 @@ public class GuessingGame {
         // JVM decides when is the best time to collectthe garbage
         // If we were to run this programs loop and guess incorrectly 1 million times really quickly then we would end up with 1 million string objects in memory and they would never get collected for memory.
 
+        // Minimally edited video to show process of a professional developer thinking through a problem in nearly real-time - it's not magic, it's trial and error.
+        // sometimes good to think through what variables are in advance, sometimes a waste of time as better to just run the program and see what you get.
+        // }
+        ////////////
+         */
 
+        ////////////
+        // FOR LOOPS
+        ////////////
+        // Most popular type of loop is For loop
+        // by default For loop only loops a certain number of times
+        // mostly used for iterating over a list of things (primitives, People, etc.)
+        // for loops (as well as while loops) are in most programming languages, and syntax mostly the same.
+
+        int randomNum = new Random().nextInt(10) + 1;
+        System.out.printf("Random number is %d.%n", randomNum);
+        String guessedNumStr = null;
+        int wrongGuessCount; // default value of int = 0;
+        for (wrongGuessCount = 1; wrongGuessCount <= MAX_ALLOWED_TRIES; wrongGuessCount++) {
+            guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
+            if (guessedNumStr.matches("-?\\d{1,2}")) {
+                int guessedNum = Integer.parseInt(guessedNumStr);
+                if (guessedNum == randomNum) {
+                    String tryText = wrongGuessCount == 1 ? "try" : "tries";
+                    System.out.printf("The random number was %d. You got it in %d %s!%n", randomNum, wrongGuessCount, tryText);
+                    // return will exit the loop and end the program (if the loop is directly within the main method)
+                    // break will only exit the loop (but in this case the program will also end)
+                    // break statement works with all loops (do/while, for, while)
+                    break;
+                }
+                System.out.println("You didn't get it!");
+                // continue: short-circuits any remaining code that might get executed within a loop and causes the thread to go back to the top of the loop and start again.
+                continue;
+            }
         }
+        if (wrongGuessCount >= MAX_ALLOWED_TRIES) {
+            System.out.printf("You've had %d incorrect guesses. The random number is %d. Ending program now.", wrongGuessCount - 1, randomNum);
+        }
+
+        // Alternative syntax for initializing variable for use in a for loop, but rarely use it
+        // int wrongGuessCount = 1; // default value of int = 0;
+        // for (; wrongGuessCount <= MAX_ALLOWED_TRIES; wrongGuessCount++) {
+
+    }
 }
