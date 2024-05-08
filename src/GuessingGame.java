@@ -135,31 +135,73 @@ public class GuessingGame {
         // When we use the java command to execute a java programme we are actually pointing it at the final byte code version that Java built for us, and so we have to tell Java where that is.
         // That folder is under the out/ folder.
         // terminal command: ' java -cp .\out\production\People GuessingGame'
-        int randomNum = new Random().nextInt(10) + 1;
+//        int randomNum = new Random().nextInt(10) + 1;
+//
+//        // console = related to computer and monitor?
+//        // can't call a method on a null object
+//        String guessedNumStr = null;
+//        // while (guessedNumStr.equals("q")) {
+//        // flip around: "q" will always exist as it is hardcoded
+//        while (!"q".equals(guessedNumStr)) {
+//            guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
+//            // nested if statements (inside while loops) increase complexity of the programme
+//            // probably not the best way, more complex to process in head
+//            // somewhat realistic scenario to use a reg ex
+//            if (guessedNumStr.matches("-?\\d{1,2}")) {
+//                int guessedNum = Integer.parseInt(guessedNumStr);
+//                if (guessedNum == randomNum) {
+//                    System.out.printf("The random number was %d. You got it!%n", randomNum);
+//                    return;
+//                } else {
+//                    System.out.println("You didn't get it!");
+//                }
+//            }
+//        }
 
-        // console = related to computer and monitor?
-        // can't call a method on a null object
+        ////////////////
+        // DO WHILE LOOP
+        ////////////////
+        // only distinction between while loop and do while loop is that
+        // with the do while the body of the loop is guaranteed to run at least once
+        // program seems to run exactly as before
+        int randomNum = new Random().nextInt(10) + 1;
+        System.out.printf("Random number is %d.%n", randomNum);
+
         String guessedNumStr = null;
-        // while (guessedNumStr.equals("q")) {
-        // flip around: "q" will always exist as it is hardcoded
-        while (!"q".equals(guessedNumStr)) {
+
+        int wrongGuessCount = 1;
+        do {
             guessedNumStr = System.console().readLine("Please guess a number between 1 and 10 inclusively: ");
-            // nested if statements (inside while loops) increase complexity of the programme
-            // probably not the best way, more complex to process in head
-            // somewhat realistic scenario to use a reg ex
             if (guessedNumStr.matches("-?\\d{1,2}")) {
                 int guessedNum = Integer.parseInt(guessedNumStr);
                 if (guessedNum == randomNum) {
-                    System.out.printf("The random number was %d. You got it!%n", randomNum);
+                    // ternary operator best for small conditionals
+                    String tryText = wrongGuessCount == 1 ? "try" : "tries";
+                    // by default with printf or format each replacement code %d %s gets replaced with a corresponding variable in the order in which they come - %d (digit) = randomNum, %d = wrongGuessCount, %s = tryText
+                    System.out.printf("The random number was %d. You got it in %d %s!%n", randomNum, wrongGuessCount, tryText);
                     return;
                 } else {
+                    // prepare things before presenting things
+                    wrongGuessCount++;
                     System.out.println("You didn't get it!");
                 }
             }
+        }  while (!"q".equals(guessedNumStr));
+
+        // SCOPE
+        // any time you record a variable in a code block
+        // as soon as thread leaves the code block the variables that were declared in that code block cease to exist.
+        // only come back into existence when the thread comes back into the code block
+        // local variables. Local to that block of code (function, method)
+        // maintain state of this variable declare it outside of scope of loop
+        // Note: you might be inclined to keep all variables as global as possible, high up in the program, but that would be a mistake: can be wasteful of memory and resources.
+        // Where will I need access to any given variable and how long will that variable need to retain its data.
+        // you want to keep variables as local to where they are going to be used as possible.
+
+        // Java (Java Virtual Machine) has 'Garbage Collection' - variables take space in memory, when the thread leaves the scope, those variables are allowed to be garbage collected by Java, meaning the space that those variables took in memory can be reclaimed.
+        // JVM decides when is the best time to collectthe garbage
+        // If we were to run this programs loop and guess incorrectly 1 million times really quickly then we would end up with 1 million string objects in memory and they would never get collected for memory.
+
+
         }
-            ///////////
-        // SWITCH STATEMENT PATTERN MATCHING
-
-
-    }
 }
